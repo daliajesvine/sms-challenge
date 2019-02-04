@@ -1,0 +1,45 @@
+<div class="mat-elevation-z8 data-table">
+  
+  <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+      <mat-cell *matCellDef="let cityReportsData">{{cityReportsData.city}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="start_date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</mat-header-cell>
+      <mat-cell *matCellDef="let cityReportsData">{{cityReportsData.start_date}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="end_date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>End Date</mat-header-cell>
+      <mat-cell *matCellDef="let cityReportsData">{{cityReportsData.end_date}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+        <mat-cell *matCellDef="let cityReportsData">{{cityReportsData.price}}</mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+        <mat-cell *matCellDef="let cityReportsData">{{cityReportsData.status}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="color">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Color</mat-header-cell>
+          <mat-cell *matCellDef="let cityReportsData">{{cityReportsData.color}}</mat-cell>
+        </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let cityReportsData; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>
